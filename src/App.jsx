@@ -1,18 +1,28 @@
-import React from "react"
+import React,{useState} from "react"
 import Feed from "./components/Feed"
 import Sidebar from "./components/Sidebar"
+import Home from "./components/Home"
+import UserContext from "./context/UserContext"
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import Dashboard from "./components/Dashboard"
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null)
+
   return (
-    <div className="App">
-      <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
-        <Sidebar />
-        <Feed />
-        {/* Feed */}
-        {/* Widgets */}
-        {/* Modal */}
-      </main>
-    </div>
+    <UserContext.Provider
+      value = {{
+        currentUser,
+        setCurrentUser
+      }}
+    >
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} exact/>
+            <Route path="/dashboard" element={<Dashboard />} exact/>
+          </Routes>
+        </BrowserRouter>
+    </UserContext.Provider>
   )
 }
 
