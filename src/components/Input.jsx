@@ -45,13 +45,13 @@ const Input = () => {
       updatePosts(newPosts);
       setSelectedFile(null);
       setInput("");
-      return alert("Post uploaded");
+      return alert("Your Tweet was sent.");
     } else {
       localStorage.setItem("posts", JSON.stringify([newPost]));
       updatePosts([newPost]);
       setSelectedFile(null);
       setInput("");
-      return alert("Post uploaded");
+      return alert("Your Tweet was sent.");
     }
   };
 
