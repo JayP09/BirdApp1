@@ -18,6 +18,7 @@ function App() {
     let newPosts = posts.filter((post) => post.postID !== id);
     localStorage.setItem("posts", JSON.stringify(newPosts));
     updatePosts(newPosts);
+    return alert("Your Tweet was deleted")
   };
 
   useEffect(() => {
